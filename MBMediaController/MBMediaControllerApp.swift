@@ -9,9 +9,12 @@ import SwiftUI
 
 @main
 struct MBMediaControllerApp: App {
+    @StateObject private var mediaController = MediaController()
+
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MinimalDrivingView()
+                .environmentObject(mediaController)
         }
     }
 }

@@ -8,18 +8,26 @@
 
 /* Begin PBXBuildFile section */
 		027E131D2880F9420016878A /* MBMediaControllerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 027E131C2880F9420016878A /* MBMediaControllerApp.swift */; };
-		027E131F2880F9420016878A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 027E131E2880F9420016878A /* ContentView.swift */; };
 		027E13212880F9440016878A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 027E13202880F9440016878A /* Assets.xcassets */; };
 		027E13242880F9440016878A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 027E13232880F9440016878A /* Preview Assets.xcassets */; };
+		027E132D2880FB210016878A /* MinimalDrivingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 027E132C2880FB210016878A /* MinimalDrivingView.swift */; };
+		027E13302880FBC70016878A /* OrientationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 027E132F2880FBC70016878A /* OrientationManager.swift */; };
+		027E13322880FBDE0016878A /* OrientationKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 027E13312880FBDE0016878A /* OrientationKey.swift */; };
+		027E13342880FBF00016878A /* OrientationPropertyWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 027E13332880FBF00016878A /* OrientationPropertyWrapper.swift */; };
+		027E133A288105340016878A /* MediaController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 027E1339288105340016878A /* MediaController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		027E13192880F9420016878A /* MBMediaController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MBMediaController.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		027E131C2880F9420016878A /* MBMediaControllerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBMediaControllerApp.swift; sourceTree = "<group>"; };
-		027E131E2880F9420016878A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		027E13202880F9440016878A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		027E13232880F9440016878A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		027E132A2880FA000016878A /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		027E132C2880FB210016878A /* MinimalDrivingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinimalDrivingView.swift; sourceTree = "<group>"; };
+		027E132F2880FBC70016878A /* OrientationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrientationManager.swift; sourceTree = "<group>"; };
+		027E13312880FBDE0016878A /* OrientationKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrientationKey.swift; sourceTree = "<group>"; };
+		027E13332880FBF00016878A /* OrientationPropertyWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrientationPropertyWrapper.swift; sourceTree = "<group>"; };
+		027E1339288105340016878A /* MediaController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,10 +61,11 @@
 		027E131B2880F9420016878A /* MBMediaController */ = {
 			isa = PBXGroup;
 			children = (
+				027E132B2880FB0B0016878A /* DrivingNowPlaying */,
 				027E131C2880F9420016878A /* MBMediaControllerApp.swift */,
-				027E131E2880F9420016878A /* ContentView.swift */,
 				027E13202880F9440016878A /* Assets.xcassets */,
 				027E13222880F9440016878A /* Preview Content */,
+				027E1339288105340016878A /* MediaController.swift */,
 			);
 			path = MBMediaController;
 			sourceTree = "<group>";
@@ -67,6 +76,33 @@
 				027E13232880F9440016878A /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		027E132B2880FB0B0016878A /* DrivingNowPlaying */ = {
+			isa = PBXGroup;
+			children = (
+				027E132C2880FB210016878A /* MinimalDrivingView.swift */,
+				027E13382881050B0016878A /* Views */,
+				027E132E2880FBB90016878A /* Orientation */,
+			);
+			path = DrivingNowPlaying;
+			sourceTree = "<group>";
+		};
+		027E132E2880FBB90016878A /* Orientation */ = {
+			isa = PBXGroup;
+			children = (
+				027E132F2880FBC70016878A /* OrientationManager.swift */,
+				027E13312880FBDE0016878A /* OrientationKey.swift */,
+				027E13332880FBF00016878A /* OrientationPropertyWrapper.swift */,
+			);
+			path = Orientation;
+			sourceTree = "<group>";
+		};
+		027E13382881050B0016878A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -113,6 +149,8 @@
 				Base,
 			);
 			mainGroup = 027E13102880F9420016878A;
+			packageReferences = (
+			);
 			productRefGroup = 027E131A2880F9420016878A /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -139,7 +177,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				027E131F2880F9420016878A /* ContentView.swift in Sources */,
+				027E13322880FBDE0016878A /* OrientationKey.swift in Sources */,
+				027E13342880FBF00016878A /* OrientationPropertyWrapper.swift in Sources */,
+				027E132D2880FB210016878A /* MinimalDrivingView.swift in Sources */,
+				027E13302880FBC70016878A /* OrientationManager.swift in Sources */,
+				027E133A288105340016878A /* MediaController.swift in Sources */,
 				027E131D2880F9420016878A /* MBMediaControllerApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

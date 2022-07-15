@@ -6,3 +6,13 @@
 //
 
 import Foundation
+
+class MediaController: ObservableObject {
+    init() {
+        print("MediaController init 👶🏻")
+    }
+
+    deinit {
+        print("MediaController deinit ☠️")
+    }
+}
