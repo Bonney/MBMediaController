@@ -11,15 +11,22 @@ struct MDVButtonStyle: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
             .font(.system(size: 80, weight: .ultraLight, design: .default))
-            .foregroundStyle(.secondary)
+            .symbolVariant(.fill)
+            .foregroundStyle(.quaternary)
+            .frame(maxWidth: .infinity, maxHeight: 300, alignment: .center)
+            .background {
+                ContainerRelativeShape()
+                    .foregroundStyle(.quaternary)
+                    .opacity(0.4)
+                    .overlay {
+                        ContainerRelativeShape()
+                            .stroke(.quaternary, lineWidth: 2)
+                    }
+            }
+            .containerShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
             .opacity(configuration.isPressed ? 0.5 : 1.0)
             .scaleEffect(configuration.isPressed ? 0.8 : 1.0)
             .animation(.spring(), value: configuration.isPressed)
-            .frame(maxWidth: .infinity, maxHeight: 160, alignment: .center)
-            .background {
-                RoundedRectangle(cornerRadius: 8, style: .continuous)
-                    .stroke(.quaternary, lineWidth: 2)
-            }
     }
 }
 
@@ -28,42 +35,45 @@ struct MinimalDrivingView: View {
     @Orientation var deviceOrientation: UIDeviceOrientation
 
     var body: some View {
-        VStack {
-
+        VStack(spacing: 20) {
             MediaControlButtons()
             NowPlayingTitleAndArtwork()
-
         }
         .padding()
         .frame(maxHeight: .infinity)
         .background {
-            LinearGradient(colors: [Color.black, Color.indigo.opacity(0.2)], startPoint: .top, endPoint: .bottom)
-                .ignoresSafeArea()
+            Color.black.ignoresSafeArea()
         }
         .preferredColorScheme(.dark)
     }
 
     @ViewBuilder func NowPlayingTitleAndArtwork() -> some View {
         HStack {
-            RoundedRectangle(cornerRadius: 16, style: .continuous)
+            RoundedRectangle(cornerRadius: 8, style: .continuous)
                 .aspectRatio(1, contentMode: .fit)
                 .foregroundStyle(.quaternary)
-                .frame(width: 80)
+                .frame(width: 60)
+                .overlay {
+                    Image(systemName: "airplayaudio")
+                        .font(.title3)
+                        .foregroundStyle(.secondary)
+                }
 
             VStack(alignment: .leading) {
-
                 Text("Track Title Track Title Here")
                     .font(.title2)
+                    .foregroundStyle(.secondary)
 
                 Text("Artist Name Goes Here")
                     .font(.title3)
+                    .foregroundStyle(.tertiary)
             }
             .frame(maxWidth: .infinity, alignment: .leading)
         }
     }
 
     @ViewBuilder func MediaControlButtons() -> some View {
-        VStack {
+        Group {
             Button { } label : { Image(systemName: "backward") }
             Button { } label : { Image(systemName: "play") }
             Button { } label : { Image(systemName: "forward") }
