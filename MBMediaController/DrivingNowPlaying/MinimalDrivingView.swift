@@ -10,11 +10,16 @@ import SwiftUI
 struct MDVButtonStyle: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
-            .font(.largeTitle)
+            .font(.system(size: 80, weight: .ultraLight, design: .default))
+            .foregroundStyle(.secondary)
             .opacity(configuration.isPressed ? 0.5 : 1.0)
             .scaleEffect(configuration.isPressed ? 0.8 : 1.0)
             .animation(.spring(), value: configuration.isPressed)
             .frame(maxWidth: .infinity, maxHeight: 160, alignment: .center)
+            .background {
+                RoundedRectangle(cornerRadius: 8, style: .continuous)
+                    .stroke(.quaternary, lineWidth: 2)
+            }
     }
 }
 
@@ -58,7 +63,7 @@ struct MinimalDrivingView: View {
     }
 
     @ViewBuilder func MediaControlButtons() -> some View {
-        HStack {
+        VStack {
             Button { } label : { Image(systemName: "backward") }
             Button { } label : { Image(systemName: "play") }
             Button { } label : { Image(systemName: "forward") }
