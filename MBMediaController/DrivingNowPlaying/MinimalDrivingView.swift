@@ -25,31 +25,9 @@ struct MinimalDrivingView: View {
     var body: some View {
         VStack {
 
-            HStack {
-                RoundedRectangle(cornerRadius: 16, style: .continuous)
-                    .aspectRatio(1, contentMode: .fit)
-                    .foregroundStyle(.quaternary)
-                    .frame(width: 80)
+            MediaControlButtons()
+            NowPlayingTitleAndArtwork()
 
-                VStack(alignment: .leading) {
-
-                    Text("Track Title Track Title Here")
-                        .font(.title2)
-
-                    Text("Artist Name Goes Here")
-                        .font(.title3)
-                }
-                .frame(maxWidth: .infinity, alignment: .leading)
-            }
-
-
-
-            HStack {
-                Button { } label : { Image(systemName: "backward") }
-                Button { } label : { Image(systemName: "play") }
-                Button { } label : { Image(systemName: "forward") }
-            }
-            .buttonStyle(MDVButtonStyle())
         }
         .padding()
         .frame(maxHeight: .infinity)
@@ -58,6 +36,34 @@ struct MinimalDrivingView: View {
                 .ignoresSafeArea()
         }
         .preferredColorScheme(.dark)
+    }
+
+    @ViewBuilder func NowPlayingTitleAndArtwork() -> some View {
+        HStack {
+            RoundedRectangle(cornerRadius: 16, style: .continuous)
+                .aspectRatio(1, contentMode: .fit)
+                .foregroundStyle(.quaternary)
+                .frame(width: 80)
+
+            VStack(alignment: .leading) {
+
+                Text("Track Title Track Title Here")
+                    .font(.title2)
+
+                Text("Artist Name Goes Here")
+                    .font(.title3)
+            }
+            .frame(maxWidth: .infinity, alignment: .leading)
+        }
+    }
+
+    @ViewBuilder func MediaControlButtons() -> some View {
+        HStack {
+            Button { } label : { Image(systemName: "backward") }
+            Button { } label : { Image(systemName: "play") }
+            Button { } label : { Image(systemName: "forward") }
+        }
+        .buttonStyle(MDVButtonStyle())
     }
 }
 
