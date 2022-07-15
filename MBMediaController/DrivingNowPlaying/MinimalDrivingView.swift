@@ -11,13 +11,13 @@ struct MDVButtonStyle: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
             .font(.system(size: 80, weight: .ultraLight, design: .default))
-            .symbolVariant(.fill)
+//            .symbolVariant(.fill)
             .foregroundStyle(.quaternary)
             .frame(maxWidth: .infinity, maxHeight: 300, alignment: .center)
             .background {
                 ContainerRelativeShape()
                     .foregroundStyle(.quaternary)
-                    .opacity(0.4)
+                    .opacity(0)
                     .overlay {
                         ContainerRelativeShape()
                             .stroke(.quaternary, lineWidth: 2)
@@ -25,8 +25,8 @@ struct MDVButtonStyle: ButtonStyle {
             }
             .containerShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
             .opacity(configuration.isPressed ? 0.5 : 1.0)
-            .scaleEffect(configuration.isPressed ? 0.8 : 1.0)
-            .animation(.spring(), value: configuration.isPressed)
+            .scaleEffect(configuration.isPressed ? 0.95 : 1.0)
+            .animation(.spring().speed(1.5), value: configuration.isPressed)
     }
 }
 
@@ -38,6 +38,9 @@ struct MinimalDrivingView: View {
         VStack(spacing: 20) {
             MediaControlButtons()
             NowPlayingTitleAndArtwork()
+            ProgressView(value: 0.25)
+                .tint(.secondary)
+                .opacity(0.5)
         }
         .padding()
         .frame(maxHeight: .infinity)
@@ -49,23 +52,13 @@ struct MinimalDrivingView: View {
 
     @ViewBuilder func NowPlayingTitleAndArtwork() -> some View {
         HStack {
-            RoundedRectangle(cornerRadius: 8, style: .continuous)
-                .aspectRatio(1, contentMode: .fit)
-                .foregroundStyle(.quaternary)
-                .frame(width: 60)
-                .overlay {
-                    Image(systemName: "airplayaudio")
-                        .font(.title3)
-                        .foregroundStyle(.secondary)
-                }
-
             VStack(alignment: .leading) {
                 Text("Track Title Track Title Here")
-                    .font(.title2)
+                    .font(.title2.weight(.semibold))
                     .foregroundStyle(.secondary)
 
                 Text("Artist Name Goes Here")
-                    .font(.title3)
+                    .font(.title3.weight(.medium))
                     .foregroundStyle(.tertiary)
             }
             .frame(maxWidth: .infinity, alignment: .leading)
