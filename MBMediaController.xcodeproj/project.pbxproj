@@ -19,6 +19,7 @@
 		027E131E2880F9420016878A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		027E13202880F9440016878A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		027E13232880F9440016878A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		027E132A2880FA000016878A /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +36,7 @@
 		027E13102880F9420016878A = {
 			isa = PBXGroup;
 			children = (
+				027E132A2880FA000016878A /* README.md */,
 				027E131B2880F9420016878A /* MBMediaController */,
 				027E131A2880F9420016878A /* Products */,
 			);
